@@ -19,7 +19,13 @@
 */
 
 #include "LocalMapping.h"
-#include <unistd.h>
+//#include <unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
+
 #include <math.h>
 #include <stddef.h>
 #include <algorithm>
@@ -31,7 +37,7 @@
 #include "LoopClosing.h"
 #include "ORBmatcher.h"
 #include "Optimizer.h"
-#include <unistd.h>
+
 #include "KeyFrame.h"
 #include "Map.h"
 #include "MapPoint.h"

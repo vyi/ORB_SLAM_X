@@ -24,8 +24,12 @@
 #include<fstream>
 #include<chrono>
 #include<iomanip>
-#include <unistd.h>
-
+//#include <unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
 #include<opencv2/core/core.hpp>
 //#include<opencv2/imgcodecs/legacy/constants_c.h>
 #include<opencv2/imgcodecs/imgcodecs_c.h>
@@ -80,7 +84,7 @@ int main(int argc, char **argv)
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 #else
-        std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
+        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 #endif
 
         // Pass the image to the SLAM system
@@ -89,7 +93,7 @@ int main(int argc, char **argv)
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 #else
-        std::chrono::monotonic_clock::time_point t2 = std::chrono::monotonic_clock::now();
+        std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 #endif
 
         double ttrack= std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();

@@ -21,7 +21,12 @@
 #include "Viewer.h"
 #include <pangolin/pangolin.h>
 // #include <pangolin/pangolin.h>
-#include <unistd.h>
+//#include <unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
 #include <GL/glew.h>
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>

@@ -21,7 +21,8 @@
 #include "Initializer.h"
 
 #include "Thirdparty/DBoW2/DUtils/Random.h"
-#include <ext/alloc_traits.h>
+//#include <ext/alloc_traits.h>
+#include<memory>
 #include <algorithm>
 #include <cmath>
 #include <functional>

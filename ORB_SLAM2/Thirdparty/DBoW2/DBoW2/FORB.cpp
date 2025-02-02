@@ -13,7 +13,12 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <stdint-gcc.h>
+//#include <stdint-gcc.h>
+#if defined(_MSC_VER)
+#include <cstdint> // For Visual Studio
+#else
+#include <stdint-gcc.h> // For GCC
+#endif
 
 #include "FORB.h"
 

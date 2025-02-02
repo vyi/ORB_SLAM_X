@@ -21,8 +21,16 @@
 #include "LoopClosing.h"
 
 #include "Sim3Solver.h"
-#include <unistd.h>
-#include <ext/alloc_traits.h>
+//#include <unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
+
+//#include <ext/alloc_traits.h>
+#include <memory>
+
 #include <stddef.h>
 #include <Eigen/Geometry>
 #include <algorithm>
@@ -429,7 +437,8 @@ void LoopClosing::CorrectLoop()
         unique_lock<mutex> lock(mMutexGBA);
         mbStopGBA = true;
 
-        mnFullBAIdx++;
+        //mnFullBAIdx++;
+        mnFullBAIdx = true;
 
         if(mpThreadGBA)
         {

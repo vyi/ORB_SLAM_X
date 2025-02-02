@@ -60,7 +60,8 @@
 // #include <opencv2/imgproc/imgproc.hpp>
 // #include <vector>
 #include <assert.h>
-#include <ext/alloc_traits.h>
+//#include <ext/alloc_traits.h>
+#include<memory>
 #include <math.h>
 #include <opencv2/features2d.hpp>
 #include <opencv2/imgproc.hpp>

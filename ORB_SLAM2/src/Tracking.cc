@@ -34,7 +34,13 @@
 #include"Optimizer.h"
 #include"PnPsolver.h"
 
-#include <unistd.h>
+//#include <unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
+
 #include<iostream>
 // #include <unistd.h>
 

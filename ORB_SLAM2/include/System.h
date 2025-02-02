@@ -23,7 +23,12 @@
 #define SYSTEM_H
 
 #include<string>
-#include<unistd.h>
+#include <io.h>
+#include <process.h>
+// Map POSIX functions to Windows functions
+#define access _access
+#define usleep(x) Sleep((x)/1000)
+
 #include<thread>
 #include<opencv2/core/core.hpp>
 

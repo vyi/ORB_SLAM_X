@@ -20,7 +20,8 @@
 
 #include "KeyFrame.h"
 
-#include <ext/alloc_traits.h>
+//#include <ext/alloc_traits.h>
+#include<memory>
 #include <math.h>
 #include <algorithm>
 #include <list>
